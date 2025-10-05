@@ -2,15 +2,15 @@
 # Author: Lasse Collin
 
 prefix=/Users/hophukhang/document_portal/env
-exec_prefix=${prefix}
-libdir=${exec_prefix}/lib
-includedir=${prefix}/include
+exec_prefix=/Users/hophukhang/document_portal/env
+libdir=/Users/hophukhang/document_portal/env/lib
+includedir=/Users/hophukhang/document_portal/env/include
 
 Name: liblzma
 Description: General purpose data compression library
 URL: https://tukaani.org/xz/
-Version: 5.6.4
+Version: 5.8.1
 Cflags: -I${includedir}
 Cflags.private: -DLZMA_API_STATIC
 Libs: -L${libdir} -llzma
-Libs.private:  
+Libs.private: -pthread -lpthread 

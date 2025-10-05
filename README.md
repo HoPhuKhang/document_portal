@@ -49,3 +49,13 @@ git clone ".."
 1. LLM Model ## OpenAI(Paid), Grok(free)*,hugging face(free),Olama(local setup)
 2. Embedding Model ## openai,hf ,gemini
 3. Vector Database ## inmemory ## ondisk ##cloudbased
+
+## Groq api key link
+'''
+https://console.groq.com/keys
+'''
+
+## GOOGLE api key
+'''
+https://aistudio.google.com/api-keys
+'''

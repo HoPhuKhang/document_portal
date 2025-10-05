@@ -1,9 +1,9 @@
 prefix=/Users/hophukhang/document_portal/env
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
-includedir=${prefix}/include
+includedir=${prefix}/include 
 
 Name: OpenSSL
 Description: Secure Sockets Layer and cryptography libraries and tools
-Version: 1.1.1w
+Version: 3.5.4
 Requires: libssl libcrypto
