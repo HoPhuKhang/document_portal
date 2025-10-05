@@ -35,7 +35,7 @@ __all__ = ["normcase","isabs","join","splitdrive","split","splitext",
            "samefile","sameopenfile","samestat",
            "curdir","pardir","sep","pathsep","defpath","altsep","extsep",
            "devnull","realpath","supports_unicode_filenames","relpath",
-           "commonpath"]
+           "commonpath", "ALLOW_MISSING"]
 
 
 def _get_sep(path):
@@ -195,6 +195,7 @@ def ismount(path):
         if stat.S_ISLNK(s1.st_mode):
             return False
 
+    path = os.fspath(path)
     if isinstance(path, bytes):
         parent = join(path, b'..')
     else:
@@ -352,7 +353,7 @@ def normpath(path):
     initial_slashes = path.startswith(sep)
     # POSIX allows one or two initial slashes, but treats three or more
     # as single slash.
-    # (see http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_13)
+    # (see https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_13)
     if (initial_slashes and
         path.startswith(sep*2) and not path.startswith(sep*3)):
         initial_slashes = 2
@@ -406,6 +407,15 @@ def _joinrealpath(path, rest, strict, seen):
         sep = '/'
         curdir = '.'
         pardir = '..'
+        getcwd = os.getcwd
+    if strict is ALLOW_MISSING:
+        ignored_error = FileNotFoundError
+    elif strict:
+        ignored_error = ()
+    else:
+        ignored_error = OSError
+
+    maxlinks = None
 
     if isabs(rest):
         rest = rest[1:]
@@ -428,9 +438,7 @@ def _joinrealpath(path, rest, strict, seen):
         newpath = join(path, name)
         try:
             st = os.lstat(newpath)
-        except OSError:
-            if strict:
-                raise
+        except ignored_error:
             is_link = False
         else:
             is_link = stat.S_ISLNK(st.st_mode)
