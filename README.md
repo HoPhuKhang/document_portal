@@ -40,3 +40,12 @@ git commit -m "<write message>
 '''
 git push
 '''
+## for clonning my repo use this command
+
+'''
+git clone ".."
+'''
+### minimum requirement for this project
+1. LLM Model ## OpenAI(Paid), Grok(free)*,hugging face(free),Olama(local setup)
+2. Embedding Model ## openai,hf ,gemini
+3. Vector Database ## inmemory ## ondisk ##cloudbased
