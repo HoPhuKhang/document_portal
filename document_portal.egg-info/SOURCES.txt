@@ -10,9 +10,9 @@ exception/custom_exception.py
 logger/__init__.py
 logger/custom_logging.py
 src/__init__.py
-src/docanalysier/__init__.py
-src/doccompare/__init__.py
-src/multidocchat/__init__.py
-src/singledocchat/__init__.py
+src/document_analysier/__init__.py
+src/document_compare/__init__.py
+src/multi_document_chat/__init__.py
+src/single_document_chat/__init__.py
 utils/LLM_utils.py
 utils/__init__.py
