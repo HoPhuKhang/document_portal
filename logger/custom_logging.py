@@ -3,7 +3,7 @@ import logging
 from datetime import datetime
 
 class CustomLogger:
-    def __inti__(self, log_dir = "Logs"):
+    def __init__(self, log_dir = "Loggings"):
         self.log_dir = os.path.join(os.getcwd(), log_dir)
         os.makedirs(self.log_dir, exist_ok=True)
         self.log_file = f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
