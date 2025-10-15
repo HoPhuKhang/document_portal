@@ -19,5 +19,6 @@ tensorflow==2.17.1
 # ⚠️ loại bỏ aiobotocore hoặc chọn phiên bản phù hợp nếu không cần thiết
 structlog
 PyMuPDF
+structlog
 
  -e .

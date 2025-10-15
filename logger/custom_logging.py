@@ -12,7 +12,21 @@ class CustomLogger:
                             format='[%(asctime)s] %(message)s',
                             level=logging.INFO)
     def get_logger(self, name=__file__):
-        return logging.getLogger(name)
+        logger_name = os.path.basename(name) 
+        logger = logging.getLogger()
+        logger.setLevel(logging.INFO)
+        
+        file_formatter = logging.Formatter('[%(asctime)s] %(levelname)s %(names) (line:%(lineno)d) - %(message)s')
+        file_handler = logging.FileHandler(self.log_file_path)
+        file_handler.setFormatter(file_formatter)
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(file_formatter)
+        if not logger.handlers:
+        
+            logger.addHandler(file_handler)
+            logger.addHandler(console_handler)
+        
+        return logger
     
 if __name__ == "__main__":
     logger = CustomLogger().get_logger(__file__)
