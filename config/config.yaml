@@ -2,7 +2,7 @@ faiss_db:
   collection_name: "docment_portal"
 embedding_model: 
   provider: "google"
-  model_name: "model/text-embedding-004"
+  model_name: "text-embedding-004"
 
 retriever: 
   top_k: 10

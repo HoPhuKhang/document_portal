@@ -80,4 +80,6 @@ class ModelLoader:
 if __name__ == "__main__":
     loader = ModelLoader()
     embeddings = loader.load_embeddings()
+    result =  embeddings.embed_query("Hello world")
     print("✅ Loaded embeddings model successfully")
+    print(result)
