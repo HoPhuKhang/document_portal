@@ -1,0 +1,2 @@
+[2025-10-25 15:02:52,926] Initialized DocumentHandler with session ID: test_session
+[2025-10-25 15:02:53,019] PDF read successfully: /Users/hophukhang/document_portal/data/document_analysis/test_session/sample.pdf, session_id=test_session, pages=15

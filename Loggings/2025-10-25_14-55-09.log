@@ -1,0 +1,2 @@
+[2025-10-25 14:55:09,804] Initialized DocumentHandler with session ID: test_session
+[2025-10-25 14:55:09,906] Error reading PDF: Logger._log() got an unexpected keyword argument 'pdf_path'
